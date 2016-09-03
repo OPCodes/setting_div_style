@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			background: #000;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		#box {
+			position: relative;
+			margin: 50px auto;
+			padding: 20px;
+			width: 710px;
+			height: 480px;
+			background: #fff;
+		}
+
+		#mask {
+			display: none;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,.5);
+		}
+
+		#top {
+			height: 60px;
+			line-height: 60px;
+			font-size: 22px;
+			color: #000;
+		}
+
+		#btn {
+			display: inline-block;
+			width: 100px;
+			height: 40px;
+			line-height: 40px;
+			font-size: 12px;
+			color: #fff;
+			background: red;
+			text-align: center;
+			text-decoration: none;
+		}
+
+		#testBox {
+			width: 100px;
+			height: 100px;
+			border: 4px solid #393129;
+			background: #fff;
+		}
+
+		#controlBox {
+			display: none;
+			position: absolute;
+			bottom: 60px;
+			right: 30px;
+			padding: 15px;
+			width: 270px;
+			height: 170px;
+			border: 20px solid #9c949c;
+			background: #fff;
+		}
+
+		.bg a {
+			display: inline-block; 
+			width: 34px;
+			height: 34px;
+			line-height: 34px;
+			margin-right: 10px;
+			text-align: center;
+			color: #000;
+		}	
+
+		#red {
+			line-height: 34px;
+			border: 1px solid red;
+		}
+
+		#red:hover {
+			background: red;
+		}
+
+		#yellow {
+			line-height: 34px;
+			border: 1px solid yellow;
+		}
+
+		#yellow:hover {
+			background: yellow;
+		}
+
+
+		#blue {
+			line-height: 34px;
+			border: 1px solid blue;
+		}
+
+		#blue:hover {
+			background: blue;
+		}
+
+
+		.width a {
+			display: inline-block;
+			margin-right: 10px;
+			width: 34px;
+			height: 30px;
+			line-height: 30px;
+			border: 1px solid #c0c0c0;
+			text-align: center;
+		}
+
+		.width {
+			margin-top: 10px;
+		}
+
+		.width a:hover {
+			color: #000;
+			background: #ef9400;
+		}
+
+		.height a {
+			display: inline-block;
+			margin-right: 10px;
+			width: 34px;
+			height: 30px;
+			line-height: 30px;
+			border: 1px solid #c0c0c0;
+			text-align: center;
+		}
+
+		.height {
+			margin-top: 10px;
+		}
+
+		.height a:hover {
+			color: #000;
+			background: #ef9400;
+		}
+
+		.control {
+			margin-top: 20px;
+			text-align: center;
+		}
+
+		.control a {
+			display: inline-block;
+			width: 60px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			color: #fff;
+			background: #002952;
+		}
+
+		.red {
+			background : red;
+		}
+
+		.yellow {
+			background : yellow;
+		}
+
+		.blue {
+			background : blue;
+		}
+
+		.orange {
+			background : orange;
+		}
+
+	</style>
+	<script>
+		function $(obj){
+			return document.getElementById(obj)
+		}
+
+		window.onload = function (){
+
+			var testBox = $("testBox");
+			var btn = $("btn");
+			var conBox = $("controlBox");
+			var mask = $("mask");
+			var red = $("red");
+			var yellow = $("yellow");
+
+			var blue = $("blue");
+			var recover = $("recover");
+			var ensure = $("ensure");
+
+			var bg = document.getElementsByClassName("bg")[0];
+			var allC = bg.getElementsByTagName("a");
+			var width = document.getElementsByClassName("width")[0];
+			var allW = width.getElementsByTagName("a");
+			var w1 = $("w1");
+			var w2 = $("w2");
+			var w3 = $("w3");
+			var height = document.getElementsByClassName("height")[0];
+			var allH = height.getElementsByTagName("a");
+			var h1 = $("h1");
+			var h2 = $("h2");
+			var h3 = $("h3"); 
+
+			var color,w,h;
+
+			// 点击设置div样式按钮
+			btn.onclick = function (){
+				conBox.style.display = "block";
+				mask.style.display = "block";
+			}
+
+			// 设置颜色
+			red.onclick = function (){
+				for( var i = 0; i < allC.length; i++ ){ // 清空所有颜色
+					allC[i].className = "";
+				}
+				this.className = "red"; // 设置当前颜色
+				color = "red";  // 将当前颜色保存到变量中
+			}
+
+			yellow.onclick = function (){
+				for( var i = 0; i < allC.length; i++ ){
+					allC[i].className = "";
+				}
+				this.className = "yellow";
+				color = "yellow";
+			}
+
+			blue.onclick = function (){
+				for( var i = 0; i < allC.length; i++ ){
+					allC[i].className = "";
+				}
+				this.className = "blue";
+				color = "blue";
+			}
+
+			// 设置宽度
+			w1.onclick = function (){
+				for( var i = 0; i < allW.length; i++ ){
+					allW[i].className = "";
+				}
+				this.className = "orange";
+				w = this.innerHTML;
+			}
+
+			w2.onclick = function (){
+				for( var i = 0; i < allW.length; i++ ){
+					allW[i].className = "";
+				}
+				this.className = "orange";
+				w = this.innerHTML;
+			}
+
+			w3.onclick = function (){
+				for( var i = 0; i < allW.length; i++ ){
+					allW[i].className = "";
+				}
+				this.className = "orange";
+				w = this.innerHTML;
+			}
+
+			// 设置高度
+			h1.onclick = function (){
+				for( var i = 0; i < allH.length; i++ ){
+					allH[i].className = "";
+				}
+				this.className = "orange";
+				h = this.innerHTML;
+			}
+
+			h2.onclick = function (){
+				for( var i = 0; i < allH.length; i++ ){
+					allH[i].className = "";
+				}
+				this.className = "orange";
+				h = this.innerHTML;
+			}
+
+			h3.onclick = function (){
+				for( var i = 0; i < allH.length; i++ ){
+					allH[i].className = "";
+				}
+				this.className = "orange";
+				h = this.innerHTML;
+			}
+
+			// 点击恢复的时候，还原所有样式
+			recover.onclick = function (){ 
+				for( var i = 0; i < allC.length; i++ ){
+					allC[i].className = "";
+				}
+				for( var i = 0; i < allW.length; i++ ){
+					allW[i].className = "";
+				}
+				for( var i = 0; i < allH.length; i++ ){
+					allH[i].className = "";
+				}
+				testBox.style.cssText = "width:100px;height:100px;background:#fff";
+				conBox.style.display = "none";
+				mask.style.display = "none";
+			}
+
+			// 点击确定时，修改div样式
+			ensure.onclick = function (){
+				for( var i = 0; i < allC.length; i++ ){
+					allC[i].className = "";
+				}
+				for( var i = 0; i < allW.length; i++ ){
+					allW[i].className = "";
+				}
+				for( var i = 0; i < allH.length; i++ ){
+					allH[i].className = "";
+				}
+				testBox.style.cssText = "width:"+ w +"px;height:"+ h +"px;background:"+ color +"";
+				conBox.style.display = "none";
+				mask.style.display = "none";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div id="mask"></div>
+		<div id="top">
+			请为下面的DIV设置样式:<a href="#" id="btn">点击设置</a>
+		</div>
+		<div id="testBox"></div>
+		<div id="controlBox">
+			<div class="bg">
+				请选择背景色:<a href="#" id="red">红</a><a href="#" id="yellow">黄</a><a href="#" id="blue">蓝</a>
+			</div>
+			<div class="width">
+				请选择宽(px):<a href="#" id="w1">200</a><a href="#" id="w2">300</a><a href="#" id="w3">400</a>
+			</div>
+			<div class="height">
+				请选择高(px):<a href="#" id="h1">200</a><a href="#" id="h2">300</a><a href="#" id="h3">400</a>
+			</div>
+			<div class="control">
+				<a href="#" id="recover">恢复</a>
+				<a href="#" id="ensure">确定</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
